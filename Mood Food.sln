@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mood Food", "Mood Food\Mood Food.csproj", "{B649AA69-2A73-4E0B-9025-CA1252DBECE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mood Food.Tests", "Mood Food.Tests\Mood Food.Tests.csproj", "{C69F7B2B-F957-462D-AA4F-735B5AF5A986}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B649AA69-2A73-4E0B-9025-CA1252DBECE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B649AA69-2A73-4E0B-9025-CA1252DBECE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B649AA69-2A73-4E0B-9025-CA1252DBECE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B649AA69-2A73-4E0B-9025-CA1252DBECE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C69F7B2B-F957-462D-AA4F-735B5AF5A986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C69F7B2B-F957-462D-AA4F-735B5AF5A986}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C69F7B2B-F957-462D-AA4F-735B5AF5A986}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C69F7B2B-F957-462D-AA4F-735B5AF5A986}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {229DAB37-5515-4C33-B722-1110BCE42C9A}
+	EndGlobalSection
+EndGlobal
