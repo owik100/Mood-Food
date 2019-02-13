@@ -28,9 +28,9 @@ namespace Mood_Food.Models
         public string ZIPCode { get; set; }
         [Required(ErrorMessage = "Podaj numer domu")]
         [StringLength(4)]
-        public int HouseNumber { get; set; }
+        public string HouseNumber { get; set; }
         [StringLength(4)]
-        public int FlatNumber { get; set; }
+        public string FlatNumber { get; set; }
         [Required(ErrorMessage = "Podaj numer telefonu")]
         [StringLength(20)]
         public string PhoneNumber { get; set; }

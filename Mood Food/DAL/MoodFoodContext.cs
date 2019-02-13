@@ -11,7 +11,7 @@ namespace Mood_Food.DAL
 {
     public class MoodFoodContext :DbContext
     {
-        MoodFoodContext() : base("MoodFoodDatabase")
+       public MoodFoodContext() : base("MoodFoodDatabase")
         {
 
         }
