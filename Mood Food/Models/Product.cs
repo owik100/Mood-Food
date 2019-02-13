@@ -20,5 +20,7 @@ namespace Mood_Food.Models
         public string NameOfImage { get; set; }
         public decimal Price { get; set; }
         public bool Hidden { get; set; }
+
+        public Category Category { get; set; }
     }
 }

@@ -40,8 +40,9 @@ namespace Mood_Food.Models
         public string Description { get; set; }
         public DateTime OrderDate { get; set; }
         public OrderStatus Status { get; set; }
-        public decimal MyProperty { get; set; }
         public decimal OrderValue { get; set; }
+
+        public IEnumerable<OrderItem> OrderItem { get; set; }
     }
 
     public enum OrderStatus

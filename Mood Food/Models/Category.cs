@@ -18,5 +18,7 @@ namespace Mood_Food.Models
         public string OpisKategorii { get; set; }
         public string Description { get; set; }
         public string NameOfImage { get; set; }
+
+        public ICollection<Product> Product { get; set; }
     }
 }
