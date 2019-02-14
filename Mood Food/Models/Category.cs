@@ -15,7 +15,6 @@ namespace Mood_Food.Models
         [StringLength(100)]
         public string Name { get; set; }
         [Required(ErrorMessage = "Podaj opis kategorii")]
-        public string OpisKategorii { get; set; }
         public string Description { get; set; }
         public string NameOfImage { get; set; }
 

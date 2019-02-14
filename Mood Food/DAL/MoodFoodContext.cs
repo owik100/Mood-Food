@@ -13,7 +13,7 @@ namespace Mood_Food.DAL
     {
        public MoodFoodContext() : base("MoodFoodDatabase")
         {
-
+            Database.SetInitializer(new MoodFoodInitializer());
         }
 
         public DbSet<Product> Products { get; set; }
