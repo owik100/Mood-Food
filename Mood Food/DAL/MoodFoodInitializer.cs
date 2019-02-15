@@ -3,20 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 
+using Mood_Food.Migrations;
 using Mood_Food.Models;
+
 
 namespace Mood_Food.DAL
 {
-    public class MoodFoodInitializer : DropCreateDatabaseIfModelChanges<MoodFoodContext>
+    public class MoodFoodInitializer : MigrateDatabaseToLatestVersion<MoodFoodContext,Configuration>
     {
-        protected override void Seed(MoodFoodContext context)
-        {
-            SeedMoodFood(context);
-            base.Seed(context);
-        }
-
-        private void SeedMoodFood(MoodFoodContext context)
+        public static void SeedMoodFood(MoodFoodContext context)
         {
             List<Category> categories = new List<Category>
             {
@@ -26,7 +23,7 @@ namespace Mood_Food.DAL
                 new Category(){ Name="Dodatki", Description="Super dodatki za super cenę!", NameOfImage="Dodatki.png"},
             };
 
-            context.Categories.AddRange(categories);
+            context.Categories.AddOrUpdate(categories.ToArray());
             context.SaveChanges();
 
             List<Product> products = new List<Product>
@@ -41,7 +38,7 @@ namespace Mood_Food.DAL
                 new Product(){ProductId=8, Name="Musztarda", Description="Bardzo ostra!", CategoryId=4, NameOfImage="Musztarda.png", Price=0.99m, Hidden=false},
             };
 
-            context.Products.AddRange(products);
+            context.Products.AddOrUpdate(products.ToArray());
             context.SaveChanges();
         }
     }
