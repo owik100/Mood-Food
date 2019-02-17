@@ -1,28 +1,25 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
     <meta charset="utf-8" />
+
+    <meta name="description" content="Mood Food. Zamów pyszne jedzenie z dostawą pod sam dom.">
+    <meta name="keywords" content="Mood Food, produkty, informacje, pizza, burgery, jedzenie">
+    <meta name="author" content="Marcin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application - start</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     @Scripts.Render("~/bundles/modernizr")
+
 </head>
 <body>
-    <div class="navbar navbar-light bg-danger fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav"></ul>
-            </div>
-        </div>
-    </div>
+    <nav class="navbar bg-danger navbar-light">
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-hamburger"></i>
+            Mood Food
+        </a>
+    </nav>
 
     <div class="container body-content">
         @RenderBody()
