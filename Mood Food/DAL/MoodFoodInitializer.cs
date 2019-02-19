@@ -17,10 +17,10 @@ namespace Mood_Food.DAL
         {
             List<Category> categories = new List<Category>
             {
-                new Category(){ Name="Burgery", Description="Tylko z najwyższej jakości wołowiny!", NameOfImage="Burgery.png"},
-                new Category(){ Name="Sałatki", Description="Najświeższe składniki to nasza tajemnica!", NameOfImage="Sałatki.png"},
-                new Category(){ Name="Pizze", Description="Na najgrubszym cieście w mieście!", NameOfImage="Pizze.png"},
-                new Category(){ Name="Dodatki", Description="Super dodatki za super cenę!", NameOfImage="Dodatki.png"},
+                new Category(){CategoryId=1, Name="Burgery", Description="Tylko z najwyższej jakości wołowiny!", NameOfImage="Burgery.png"},
+                new Category(){CategoryId=2, Name="Sałatki", Description="Najświeższe składniki to nasza tajemnica!", NameOfImage="Sałatki.png"},
+                new Category(){CategoryId=3, Name="Pizze", Description="Na najgrubszym cieście w mieście!", NameOfImage="Pizze.png"},
+                new Category(){CategoryId=4, Name="Dodatki", Description="Super dodatki za super cenę!", NameOfImage="Dodatki.png"},
             };
 
             context.Categories.AddOrUpdate(categories.ToArray());
