@@ -16,7 +16,7 @@
 <body>
     <header>
         <nav class="navbar bg-danger navbar-dark navbar-expand-md">
-            <a class="navbar-brand" href="#"><i class="fas fa-hamburger"></i> Mood Food</a>
+            <a class="navbar-brand" href="@Url.Action("Index","Home",null)"><i class="fas fa-hamburger"></i> Mood Food</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przycisk nawigacyjny">
                 <span class="navbar-toggler-icon"></span>
@@ -25,16 +25,16 @@
             <div class="collapse navbar-collapse" id="mainmenu">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Strona główna</a>
+                        @Html.ActionLink("Strona główna","Index","Home",null ,new { @class="nav-link"})
                     </li>
                     <li>
                         <a class="nav-link">Menu</a>
                     </li>
                     <li>
-                        <a class="nav-link">Restauracja</a>
+                        @Html.ActionLink("Restauracja", "StaticSite", "Info",new {name="Restauracja"} ,new { @class="nav-link"})
                     </li>
                     <li>
-                        <a class="nav-link">Kontakt</a>
+                        @Html.ActionLink("Kontakt", "StaticSite", "Info", new { name = "Kontakt" }, new { @class = "nav-link" })
                     </li>
                 </ul>
                 <ul class="navbar-nav">
