@@ -4,24 +4,26 @@
     ViewBag.Title = "Mood Food";
 }
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            Tu będzie slider
+        </div>
+        <div class="col-md-6">
+            <p class="card-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam malesuada turpis sit amet ex aliquet dapibus. Maecenas a dapibus nunc. Aliquam tempor mi mollis laoreet tincidunt. Sed varius neque vitae malesuada pharetra. Sed aliquet dui vitae enim fringilla, vitae accumsan augue imperdiet. Aenean felis sapien, venenatis non suscipit eget, auctor ut mi. Suspendisse potenti. Nunc laoreet metus eget lacus tristique, ac rhoncus nisl interdum.
+            </p>
+        </div>
+    </div>
+</div>
 
-<h2>Index</h2>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.Name</li>
+    }
+</ul>
 
-<div>Testujemy</div>
-<div>@ViewBag.TestValue</div>
-
-
-<br />
-
-
-@foreach (var item in Model)
-{
-    <li>@item.Name</li>
-}
-
-<p class="card-body">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam malesuada turpis sit amet ex aliquet dapibus. Maecenas a dapibus nunc. Aliquam tempor mi mollis laoreet tincidunt. Sed varius neque vitae malesuada pharetra. Sed aliquet dui vitae enim fringilla, vitae accumsan augue imperdiet. Aenean felis sapien, venenatis non suscipit eget, auctor ut mi. Suspendisse potenti. Nunc laoreet metus eget lacus tristique, ac rhoncus nisl interdum.
-</p>
 
 <p class="card-body">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam malesuada turpis sit amet ex aliquet dapibus. Maecenas a dapibus nunc. Aliquam tempor mi mollis laoreet tincidunt. Sed varius neque vitae malesuada pharetra. Sed aliquet dui vitae enim fringilla, vitae accumsan augue imperdiet. Aenean felis sapien, venenatis non suscipit eget, auctor ut mi. Suspendisse potenti. Nunc laoreet metus eget lacus tristique, ac rhoncus nisl interdum.

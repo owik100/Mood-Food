@@ -15,7 +15,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar bg-danger navbar-dark navbar-expand-md">
+        <nav class="navbar bg-danger navbar-dark navbar-expand-md ">
             <a class="navbar-brand" href="@Url.Action("Index","Home",null)"><i class="fas fa-hamburger"></i> Mood Food</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przycisk nawigacyjny">
@@ -25,13 +25,13 @@
             <div class="collapse navbar-collapse" id="mainmenu">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        @Html.ActionLink("Strona główna","Index","Home",null ,new { @class="nav-link"})
+                        @Html.ActionLink("Strona główna", "Index", "Home", null, new { @class = "nav-link" })
                     </li>
                     <li>
                         <a class="nav-link">Menu</a>
                     </li>
                     <li>
-                        @Html.ActionLink("Restauracja", "StaticSite", "Info",new {name="Restauracja"} ,new { @class="nav-link"})
+                        @Html.ActionLink("Restauracja", "StaticSite", "Info", new { name = "Restauracja" }, new { @class = "nav-link" })
                     </li>
                     <li>
                         @Html.ActionLink("Kontakt", "StaticSite", "Info", new { name = "Kontakt" }, new { @class = "nav-link" })
@@ -50,14 +50,14 @@
                 </ul>
             </div>
         </nav>
+        <img src="@Url.Content("~/Content/Images/banner.jpeg")" class="img-fluid " alt="Baner strony" />
     </header>
-    <div>
+    <main>
         @RenderBody()
-        <footer class="footer-copyright text-center bg-danger text-light p-4">
-                @DateTime.Now.Year - &copy; MoodFood <a class="text-light" href="mailto:digitalonions100@gmail.com">MoodFood@gamil.com</a>
-        </footer>
-    </div>
-
+    </main>
+    <footer class="footer-copyright text-center bg-danger text-light p-4">
+        @DateTime.Now.Year - &copy; MoodFood <a class="text-light" href="mailto:digitalonions100@gmail.com">MoodFood@gamil.com</a>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
