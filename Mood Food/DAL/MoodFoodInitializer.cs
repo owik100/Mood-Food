@@ -11,16 +11,16 @@ using Mood_Food.Models;
 
 namespace Mood_Food.DAL
 {
-    public class MoodFoodInitializer : MigrateDatabaseToLatestVersion<MoodFoodContext,Configuration>
+    public class MoodFoodInitializer : MigrateDatabaseToLatestVersion<MoodFoodContext, Configuration>
     {
         public static void SeedMoodFood(MoodFoodContext context)
         {
             List<Category> categories = new List<Category>
             {
-                new Category(){CategoryId=1, Name="Burgery", Description="Tylko z najwyższej jakości wołowiny!", NameOfImage="Burgery.png"},
-                new Category(){CategoryId=2, Name="Sałatki", Description="Najświeższe składniki to nasza tajemnica!", NameOfImage="Sałatki.png"},
-                new Category(){CategoryId=3, Name="Pizze", Description="Na najgrubszym cieście w mieście!", NameOfImage="Pizze.png"},
-                new Category(){CategoryId=4, Name="Dodatki", Description="Super dodatki za super cenę!", NameOfImage="Dodatki.png"},
+                new Category(){CategoryId=1, Name="Burgery", Description="Tylko z najwyższej jakości wołowiny!", NameOfImage="Burgery.png", ShowProductsFromTheseCategoryInHomePage = true},
+                new Category(){CategoryId=2, Name="Sałatki", Description="Najświeższe składniki to nasza tajemnica!", NameOfImage="Sałatki.png", ShowProductsFromTheseCategoryInHomePage = true},
+                new Category(){CategoryId=3, Name="Pizze", Description="Na najgrubszym cieście w mieście!", NameOfImage="Pizze.png", ShowProductsFromTheseCategoryInHomePage = true},
+                new Category(){CategoryId=4, Name="Dodatki", Description="Super dodatki za super cenę!", NameOfImage="Dodatki.png", ShowProductsFromTheseCategoryInHomePage = false},
             };
 
             context.Categories.AddOrUpdate(categories.ToArray());

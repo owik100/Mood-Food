@@ -15,15 +15,15 @@ namespace Mood_Food.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            List<Product> lista;
-            using (var context = new MoodFoodContext())
-            {
-             
-                lista = context.Products.ToList();
-            }
+            MoodFoodContext db = new MoodFoodContext();
 
-            ViewBag.TestValue = DateTime.Now;
-            return View(lista);
+            List<Product> randomProducts;
+            randomProducts = db.Products
+                .Where(x => x.Category.ShowProductsFromTheseCategoryInHomePage == true)
+                .OrderBy(x => Guid.NewGuid())
+                .Take(4).ToList();
+
+            return View(randomProducts);
         }
     }
 }
