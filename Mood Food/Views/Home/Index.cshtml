@@ -1,4 +1,5 @@
 ﻿@using Mood_Food.Models
+@using Mood_Food.Infrastructure;
 @model List<Product>
 @{
     ViewBag.Title = "Mood Food";
@@ -28,7 +29,7 @@
         {
             <div class="col-md-6">
                 <figure class="figure">
-                    <img src="@Url.Content("~/Content/Images/" + item.NameOfImage)" class="img-fluid" />
+                    <img src=@Url.ProductImagePath(item.NameOfImage) class="img-fluid" />
                     <figcaption class="figure-caption text-center">
                         @item.Name
                     </figcaption>

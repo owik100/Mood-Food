@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Mood_Food.Infrastructure;
+<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="utf-8" />
@@ -50,7 +51,7 @@
                 </ul>
             </div>
         </nav>
-        <img src="@Url.Content("~/Content/Images/banner.jpeg")" class="img-fluid mb-2" alt="Baner strony" />
+        <img src=@Url.ImagePath("banner.jpeg") class="img-fluid mb-2" alt="Baner strony" />
     </header>
     <main>
         @RenderBody()

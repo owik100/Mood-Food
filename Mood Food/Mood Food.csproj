@@ -112,14 +112,14 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\banner.jpeg" />
-    <Content Include="Content\Images\Cheeseburger.jpeg" />
-    <Content Include="Content\Images\Hamburger.jpeg" />
-    <Content Include="Content\Images\Keczup.jpeg" />
-    <Content Include="Content\Images\Musztarda.jpeg" />
-    <Content Include="Content\Images\PizzaMargherita.jpeg" />
-    <Content Include="Content\Images\PizzaWiejska.jpeg" />
-    <Content Include="Content\Images\SalatkaMeksykanska.jpeg" />
-    <Content Include="Content\Images\SalatkaZKurczakiem.jpeg" />
+    <Content Include="Content\Images\Products\Cheeseburger.jpeg" />
+    <Content Include="Content\Images\Products\Hamburger.jpeg" />
+    <Content Include="Content\Images\Products\Keczup.jpeg" />
+    <Content Include="Content\Images\Products\Musztarda.jpeg" />
+    <Content Include="Content\Images\Products\PizzaMargherita.jpeg" />
+    <Content Include="Content\Images\Products\PizzaWiejska.jpeg" />
+    <Content Include="Content\Images\Products\SalatkaMeksykanska.jpeg" />
+    <Content Include="Content\Images\Products\SalatkaZKurczakiem.jpeg" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
@@ -162,6 +162,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\UrlExtensions.cs" />
     <Compile Include="Migrations\201902151705583_InitialCreate.cs" />
     <Compile Include="Migrations\201902151705583_InitialCreate.Designer.cs">
       <DependentUpon>201902151705583_InitialCreate.cs</DependentUpon>
