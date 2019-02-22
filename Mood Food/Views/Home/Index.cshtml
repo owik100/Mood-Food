@@ -6,13 +6,25 @@
 }
 @section scripts
 {
-    <script src="@Url.Content("~/Scripts/slider.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            let imageNamesArray = @Html.Raw(Json.Encode(Model.Select(x => Url.ProductImagePath(x.NameOfImage)).ToArray()));
+            let counter = 0;
+
+            setInterval(function () {
+                $("#slider").children(":first").attr("src", imageNamesArray[counter]);
+                counter++;
+                if (counter >= imageNamesArray.length)
+                    counter = 0;
+            }, 1000);
+        });
+   </script>
 }
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
-            <div>
-                <!--<img id="slider" src="@Url.Content("~/Content/Images/Hamburger.jpeg")" class="img-fluid" />-->
+            <div id="slider">
+                <img class="img-fluid" />
                 Tu będzie slider
             </div>
         </div>
