@@ -1,5 +1,13 @@
 ﻿body{
-   
+   background-image: url(Images/background.png);
+}
+
+.jumbotron {
+    padding-bottom: 40px;
+    padding-top: 2px;
+}
+    .MlightColor{
+    background-color:#e9cca0;
 }
 
 main {

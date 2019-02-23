@@ -111,7 +111,12 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\background.png" />
     <Content Include="Content\Images\banner.jpeg" />
+    <Content Include="Content\Images\Categories\Burgery.jpeg" />
+    <Content Include="Content\Images\Categories\Dodatki.jpeg" />
+    <Content Include="Content\Images\Categories\Pizze.jpeg" />
+    <Content Include="Content\Images\Categories\Sałatki.jpeg" />
     <Content Include="Content\Images\Products\Cheeseburger.jpeg" />
     <Content Include="Content\Images\Products\Hamburger.jpeg" />
     <Content Include="Content\Images\Products\Keczup.jpeg" />
