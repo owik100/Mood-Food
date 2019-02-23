@@ -14,6 +14,13 @@ namespace Mood_Food
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+             name: "Menu",
+             url: "Menu",
+             defaults: new { controller = "Product", action = "Categories" }
+         );
+
+
+            routes.MapRoute(
              name: "Static",
              url: "Info/{name}",
              defaults: new { controller = "Info", action = "StaticSite" }

@@ -29,7 +29,7 @@
                         @Html.ActionLink("Strona główna", "Index", "Home", null, new { @class = "nav-link" })
                     </li>
                     <li>
-                        <a class="nav-link">Menu</a>
+                        @Html.ActionLink("Menu", "Categories", "Product", null, new { @class = "nav-link" })
                     </li>
                     <li>
                         @Html.ActionLink("Restauracja", "StaticSite", "Info", new { name = "Restauracja" }, new { @class = "nav-link" })

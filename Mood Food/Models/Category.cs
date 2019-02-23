@@ -17,6 +17,7 @@ namespace Mood_Food.Models
         [Required(ErrorMessage = "Podaj opis kategorii")]
         public string Description { get; set; }
         public string NameOfImage { get; set; }
+        [Display(Name="Pokaż na głównej stronie")]
         public bool ShowProductsFromTheseCategoryInHomePage { get; set; }
 
         public ICollection<Product> Product { get; set; }

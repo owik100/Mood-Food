@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mood_Food.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,9 +15,13 @@ namespace Mood_Food.Controllers
             return View();
         }
 
-        public string GetImage(string name)
+        public ActionResult Categories()
         {
-            return "test"+name;
+            MoodFoodContext db = new MoodFoodContext();
+
+            var categories = db.Categories.ToList();
+
+            return View(categories);
         }
     }
 }
