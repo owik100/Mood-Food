@@ -8,12 +8,17 @@
 
 <div class="container-fluid">
     <div class="row">
+
         <div class="col-lg-3 col-sm-6 ">
             <div class="jumbotron bg-warning">
-                <h1 class="display-4 text-center">Całe menu</h1>
+                <a class="text-danger nounderline" href=@Url.Action("Products","Product")>
+                    <h1 class="display-4 text-center">Całe menu</h1>
+                </a>
                 <p class="lead text-center">Mamy wszystko czego pragniesz!</p>
                 <hr class="my-4">
-                <img class="img-fluid ml-auto" src=@Url.CategoriesImagePath("Food.jpeg") />
+                <a href=@Url.Action("Products","Product")>
+                    <img class="img-fluid ml-auto" src=@Url.CategoriesImagePath("Food.jpeg") />
+                </a>
             </div>
         </div>
 
@@ -21,10 +26,14 @@
         {
             <div class="col-lg-3 col-sm-6 ">
                 <div class="jumbotron bg-warning">
-                    <h1 class="display-4 text-center">@item.Name</h1>
+                    <a class="text-danger nounderline" href=@Url.Action("Products","Product",new {category=item.Name })>
+                        <h1 class="display-4 text-center">@item.Name</h1>
+                    </a>
                     <p class="lead text-center">@item.Description</p>
                     <hr class="my-4">
-                    <img class="img-fluid ml-auto" src=@Url.CategoriesImagePath(item.NameOfImage) />
+                    <a href=@Url.Action("Products","Product", new {category=item.Name })>
+                        <img class="img-fluid ml-auto" src=@Url.CategoriesImagePath(item.NameOfImage) />
+                    </a>
                 </div>
             </div>
         }

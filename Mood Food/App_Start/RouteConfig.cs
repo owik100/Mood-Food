@@ -15,8 +15,8 @@ namespace Mood_Food
 
             routes.MapRoute(
              name: "Menu",
-             url: "Menu",
-             defaults: new { controller = "Product", action = "Categories" }
+             url: "Menu/{category}",
+             defaults: new { controller = "Product", action = "Products", category = UrlParameter.Optional }
          );
 
 

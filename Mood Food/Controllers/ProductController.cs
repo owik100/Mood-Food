@@ -23,5 +23,24 @@ namespace Mood_Food.Controllers
 
             return View(categories);
         }
+
+        public ActionResult Products(string category="")
+        {
+            MoodFoodContext db = new MoodFoodContext();
+
+            if (category=="")
+            {
+                var allProducts = db.Products.ToList();
+
+                return View(allProducts);
+            }
+
+            var products = db.Products
+                .Where(x => x.Category.Name == category).ToList();
+
+            return View(products);
+        }
+
+
     }
 }
