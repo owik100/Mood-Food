@@ -2,16 +2,16 @@
 @{
     Layout = null;
 }
-<ul class="navbar-nav">
+<ul class="nav justify-content-center">
 
     <li class="nav-item">
-        @Html.ActionLink("Całe menu", "Products", "Product", null, new { @class = "nav-link" })
+        @Html.ActionLink("Całe menu", "Products", "Product", new {category="" }, new { @class = "btn btn-danger nav-link" })
     </li>
 
     @foreach (var item in Model)
     {
         <li class="nav-item">
-            @Html.ActionLink(item.Name, "Products", "Product", new { category = item.Name }, new { @class = "nav-link" })
+            @Html.ActionLink(item.Name, "Products", "Product", new { category = item.Name }, new { @class = "btn btn-danger ml-2 mb-2 nav-link" })
         </li>
     }
 </ul>

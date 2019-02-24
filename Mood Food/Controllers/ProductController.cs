@@ -41,13 +41,14 @@ namespace Mood_Food.Controllers
             return View(products);
         }
 
-        public ActionResult CategoryNav()
+        [ChildActionOnly]
+        public PartialViewResult CategoryNav()
         {
             MoodFoodContext db = new MoodFoodContext();
 
             var categories = db.Categories.ToList();
 
-            return View("_CategoryNav",categories);
+            return PartialView("_CategoryNav",categories);
         }
     }
 }
