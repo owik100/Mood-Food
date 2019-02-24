@@ -17,7 +17,7 @@
                 <p class="lead text-center">Mamy wszystko czego pragniesz!</p>
                 <hr class="my-4">
                 <a href=@Url.Action("Products","Product")>
-                    <img class="img-fluid ml-auto" src=@Url.CategoriesImagePath("Food.jpeg") />
+                    <img class="img-fluid" src=@Url.CategoriesImagePath("Food.jpeg") />
                 </a>
             </div>
         </div>
@@ -32,7 +32,7 @@
                     <p class="lead text-center">@item.Description</p>
                     <hr class="my-4">
                     <a href=@Url.Action("Products","Product", new {category=item.Name })>
-                        <img class="img-fluid ml-auto" src=@Url.CategoriesImagePath(item.NameOfImage) />
+                        <img class="img-fluid" src=@Url.CategoriesImagePath(item.NameOfImage) />
                     </a>
                 </div>
             </div>

@@ -2,6 +2,14 @@
     text-decoration: none !important
 }
 
+.MlightColor {
+    background-color: #e9cca0;
+}
+
+.border-3 {
+    border-width: 5px !important;
+}
+
 body {
     background-image: url(Images/background.png);
 }
@@ -9,10 +17,6 @@ body {
 .jumbotron {
     padding-bottom: 40px;
     padding-top: 2px;
-}
-
-.MlightColor {
-    background-color: #e9cca0;
 }
 
 main {

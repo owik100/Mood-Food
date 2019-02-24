@@ -1,15 +1,20 @@
 ﻿@model IEnumerable<Mood_Food.Models.Product>
+@using Mood_Food.Infrastructure;
 
 @{
-    ViewBag.Title = "Products";
+    ViewBag.Title = "Produkty";
 }
 
 <h2>Products</h2>
-
-@foreach (var item in Model)
-{
-    <h3>@item.Name</h3>
-    <p>@item.Description</p>
-    <hr />
-}
-
+@Html.Action("CategoryNav", "Product")
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-3 col-sm-6">
+                <h3 class="display-5 text-center">@item.Name</h3>
+                <img class="img-fluid border border-danger border-3" src=@Url.ProductImagePath(item.NameOfImage) />
+            </div>
+        }
+    </div>
+</div>

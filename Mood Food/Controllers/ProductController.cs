@@ -41,6 +41,13 @@ namespace Mood_Food.Controllers
             return View(products);
         }
 
+        public ActionResult CategoryNav()
+        {
+            MoodFoodContext db = new MoodFoodContext();
 
+            var categories = db.Categories.ToList();
+
+            return View("_CategoryNav",categories);
+        }
     }
 }
