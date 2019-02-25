@@ -1,0 +1,26 @@
+﻿@model Mood_Food.Models.Product
+@using Mood_Food.Infrastructure;
+@{
+    ViewBag.Title = "Description";
+}
+
+@Html.Action("CategoryNav", "Product")
+
+<div class="container-fluid">
+    <div class="jumbotron bg-warning text-center">
+        <div class="row">
+            <div class="col-md-4 my-3">
+                <img src=@Url.ProductImagePath(Model.NameOfImage) class="img-fluid" alt="Sample image for first version of blog listing">
+            </div>
+            <div class="col-md-8 mt-3">
+                <h4 class="display-3 pt-2">@Model.Name</h4>
+                <p class="lead ml-1">
+                    @Model.Description
+                </p>
+                <hr />
+                <p class="font-weight-normal display-4">@Model.Price.ToString("c")</p>
+                <a class="btn btn-success">Dodaj do zamówienia</a>
+            </div>
+        </div>
+    </div>
+</div>

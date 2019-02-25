@@ -9,11 +9,6 @@ namespace Mood_Food.Controllers
 {
     public class ProductController : Controller
     {
-        // GET: Product
-        public ActionResult Index()
-        {
-            return View();
-        }
 
         public ActionResult Categories()
         {
@@ -40,6 +35,18 @@ namespace Mood_Food.Controllers
 
             return View(products);
         }
+
+        public ActionResult Description(int id)
+        {
+            MoodFoodContext db = new MoodFoodContext();
+
+           var product = db.Products
+                .Where(x => x.ProductId == id)
+                .FirstOrDefault();
+
+            return View(product);
+        }
+
 
         [ChildActionOnly]
         public PartialViewResult CategoryNav()

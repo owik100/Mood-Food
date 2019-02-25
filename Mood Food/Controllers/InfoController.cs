@@ -8,7 +8,6 @@ namespace Mood_Food.Controllers
 {
     public class InfoController : Controller
     {
-        // GET: Info
         public ActionResult StaticSite(string name)
         {
             return View(name);

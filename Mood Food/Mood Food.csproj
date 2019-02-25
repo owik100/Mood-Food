@@ -212,6 +212,7 @@
     <Content Include="Views\Product\Categories.cshtml" />
     <Content Include="Views\Product\Products.cshtml" />
     <Content Include="Views\Shared\_CategoryNav.cshtml" />
+    <Content Include="Views\Product\Description.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

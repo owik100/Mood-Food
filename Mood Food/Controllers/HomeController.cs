@@ -12,7 +12,6 @@ namespace Mood_Food.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
         public ActionResult Index()
         {
             MoodFoodContext db = new MoodFoodContext();
