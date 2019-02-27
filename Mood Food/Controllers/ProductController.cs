@@ -10,6 +10,7 @@ namespace Mood_Food.Controllers
     public class ProductController : Controller
     {
 
+        [OutputCache(Duration = 600)]
         public ActionResult Categories()
         {
             MoodFoodContext db = new MoodFoodContext();
@@ -19,6 +20,7 @@ namespace Mood_Food.Controllers
             return View(categories);
         }
 
+        [OutputCache(Duration = 600, VaryByContentEncoding = "category")]
         public ActionResult Products(string category="")
         {
             MoodFoodContext db = new MoodFoodContext();
@@ -36,6 +38,7 @@ namespace Mood_Food.Controllers
             return View(products);
         }
 
+        [OutputCache(Duration = 600, VaryByContentEncoding ="id")]
         public ActionResult Description(int id)
         {
             MoodFoodContext db = new MoodFoodContext();
@@ -49,6 +52,7 @@ namespace Mood_Food.Controllers
 
 
         [ChildActionOnly]
+        [OutputCache(Duration = 600)]
         public PartialViewResult CategoryNav()
         {
             MoodFoodContext db = new MoodFoodContext();
