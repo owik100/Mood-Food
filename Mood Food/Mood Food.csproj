@@ -176,6 +176,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\ISessionManager.cs" />
+    <Compile Include="Infrastructure\SessionManager.cs" />
+    <Compile Include="Infrastructure\ShoppingCartManager.cs" />
     <Compile Include="Infrastructure\UrlExtensions.cs" />
     <Compile Include="Migrations\201902151705583_InitialCreate.cs" />
     <Compile Include="Migrations\201902151705583_InitialCreate.Designer.cs">
