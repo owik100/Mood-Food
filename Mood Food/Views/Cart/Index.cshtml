@@ -17,19 +17,28 @@
             @foreach (var item in Model.CartProducts)
             {
             <tr>
-                <td class="lead text-center">@item.Product.Name</td>
-                <td><img class="img-thumbnail w-50" src=@Url.ProductImagePath(item.Product.NameOfImage) /> </td>
+                <td>@Html.ActionLink(item.Product.Name, "Description", "Product", new { id = item.Product.ProductId }, new { @class = "nounderline lead text-center text-danger" }) </td>
+                <td> <a href=@Url.Action("Description", "Product", new { id = item.Product.ProductId })><img class="img-thumbnail w-50" src=@Url.ProductImagePath(item.Product.NameOfImage) /> </a> </td>
                 <td><p>@item.Product.Description</p></td>
                 <td><p class="font-weight-bold">Ilość: @item.Quantity</p></td>
                 <td class="font-weight-bold">@item.Value.ToString("c")</td>
-                <td>@Html.ActionLink("Usuń", "Delete", "Cart", new { id = item.Product.ProductId }, new { @class = "btn btn-danger" })</td>
+                <td><a class = "btn btn-danger deleteButton" data-id=@item.Product.ProductId href="@Url.Action("Delete", "Cart", new { id = item.Product.ProductId })">Usuń</a></td>
             </tr>
             }
         </table>
         <div class="d-flex justify-content-center" id="CenaCalkowita" style="">
-            Razem: @Model.TotalValue.ToString("c")
+
+            @if (Model.TotalValue <= 0)
+            {
+                <p class="font-weight-normal ">Twój koszyk jest pusty. Dodaj coś!</p>
+            }
+            else
+            {
+                <p class="font-weight-normal display-4">Całkowity koszt: @Model.TotalValue.ToString("c")</p>
+            }
+
         </div>
-        <div class="SekcjaPrzyciski">
+        <div class="">
            @Html.ActionLink("Zapłać","Order","Cart",null, new { @class = "btn btn-success" })
         </div>
 
