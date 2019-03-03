@@ -13,7 +13,7 @@ namespace Mood_Food.Infrastructure
         ISessionManager session;
         MoodFoodContext db;
 
-        ShoppingCartManager(ISessionManager session, MoodFoodContext db)
+       public ShoppingCartManager(ISessionManager session, MoodFoodContext db)
         {
             this.session = session;
             this.db = db;
@@ -35,7 +35,7 @@ namespace Mood_Food.Infrastructure
             return shoppingCart;
         }
 
-        public void AddToShoppingCart(int id, int quantity)
+        public void AddToShoppingCart(int id)
         {
             List<CartProduct> shoppingCart = GetShoppingCart();
 
@@ -43,7 +43,7 @@ namespace Mood_Food.Infrastructure
 
             if(item!=null)
             {
-                item.Quantity += quantity;
+                item.Quantity++;
                 item.Value = item.Product.Price * item.Quantity;
             }
             else
@@ -51,7 +51,7 @@ namespace Mood_Food.Infrastructure
                 Product product = db.Products.Where(x => x.ProductId == id).FirstOrDefault();
 
 
-                CartProduct cartProduct = new CartProduct { Product = product, Quantity = quantity, Value = product.Price * quantity};
+                CartProduct cartProduct = new CartProduct { Product = product, Quantity = 1, Value = product.Price * 1};
 
                 shoppingCart.Add(cartProduct);
             }
@@ -60,14 +60,14 @@ namespace Mood_Food.Infrastructure
 
         }
 
-        public void DeleteFromCart(int id, int quantity)
+        public void DeleteFromCart(int id)
         {
             List<CartProduct> shoppingCart = GetShoppingCart();
             var item = shoppingCart.Find(x => x.Product.ProductId == id);
 
             if(item!=null)
             {
-                item.Quantity -= quantity;
+                item.Quantity--;
                 item.Value = item.Product.Price * item.Quantity;
 
                 if (item.Quantity<=0)
@@ -79,7 +79,7 @@ namespace Mood_Food.Infrastructure
             session.Set(Constans.SessionShoppingCartKey, shoppingCart);
         }
 
-        public decimal CartValue(List<CartProduct> cart)
+        public decimal CartTotalValue(List<CartProduct> cart)
         {
             List<CartProduct> shoppingCart = cart;
             decimal value = 0;

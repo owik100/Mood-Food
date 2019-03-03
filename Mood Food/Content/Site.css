@@ -19,6 +19,11 @@ body {
     padding-top: 2px;
 }
 
+ul {
+    list-style-type: none;
+}
+
+
 main {
     padding-left: 15px;
     padding-right: 15px;

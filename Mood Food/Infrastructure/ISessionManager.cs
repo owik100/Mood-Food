@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mood_Food.Infrastructure
 {
-    interface ISessionManager
+   public interface ISessionManager
     {
         T Get<T>(string key);
         T TryGet<T>(string key);

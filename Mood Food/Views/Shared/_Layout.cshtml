@@ -28,14 +28,17 @@
                     <li class="nav-item">
                         @Html.ActionLink("Strona główna", "Index", "Home", null, new { @class = "nav-link" })
                     </li>
-                    <li>
+                    <li class="nav-item">
                         @Html.ActionLink("Menu", "Categories", "Product", null, new { @class = "nav-link" })
                     </li>
-                    <li>
+                    <li class="nav-item">
                         @Html.ActionLink("Restauracja", "StaticSite", "Info", new { name = "Restauracja" }, new { @class = "nav-link" })
                     </li>
-                    <li>
+                    <li class="nav-item">
                         @Html.ActionLink("Kontakt", "StaticSite", "Info", new { name = "Kontakt" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index","Cart")">Koszyk <i class="fas fa-shopping-cart"></i></a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">

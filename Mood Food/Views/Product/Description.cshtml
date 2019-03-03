@@ -19,7 +19,7 @@
                 </p>
                 <hr />
                 <p class="font-weight-normal display-4">@Model.Price.ToString("c")</p>
-                <a class="btn btn-success">Dodaj do zamówienia</a>
+                @Html.ActionLink("Dodaj do zamówienia", "Add","Cart",new {id = Model.ProductId }, new { @class = "btn btn-success" })
             </div>
         </div>
     </div>

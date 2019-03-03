@@ -167,6 +167,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InfoController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -195,6 +196,7 @@
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Others\CartProduct.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ViewModels\Cart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +220,7 @@
     <Content Include="Views\Product\Products.cshtml" />
     <Content Include="Views\Shared\_CategoryNav.cshtml" />
     <Content Include="Views\Product\Description.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
