@@ -29,8 +29,6 @@ main {
     padding-right: 15px;
 }
 
-input,
-select,
-textarea {
-    max-width: 280px;
+.input-validation-error{
+    background-color: #eaa9a9;
 }

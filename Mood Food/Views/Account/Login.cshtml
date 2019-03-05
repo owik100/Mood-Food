@@ -1,0 +1,52 @@
+﻿@model Mood_Food.Models.ViewModels.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+<section>
+    <div class="container">
+        <div class="row text-white">
+            <div class="col-sm-6 offset-sm-3 text-center">
+                @using (Html.BeginForm("Login","Account",FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                <h2 class="text-center display-4">Logowanie</h2>
+                        <hr />
+                        @Html.ValidationSummary(true, "Wprowadź poprawne dane!", new { @class = "text-danger" })
+                        <div class="form-group row ">
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = " col-lg-12 text-danger" })
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = " col-lg-1 my-lg-1" })
+                            <div class="col-lg-11">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "col-lg-12 text-danger" })
+                            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "col-lg-1 my-lg-1" })
+                            <div class="col-lg-11">
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "col-lg-1 my-lg-1" })
+                            <div class="col-lg-3">
+                                <div class="form-check">
+                                    @Html.EditorFor(model => model.RememberMe)
+                                    @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="offset-md-1 col-md-10">
+                                <input type="submit" value="Zaloguj" class="btn btn-success" />
+                            </div>
+                        </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

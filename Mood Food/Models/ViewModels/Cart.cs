@@ -1,4 +1,4 @@
-﻿using Mood_Food.Models.Others;
+﻿using Mood_Food.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

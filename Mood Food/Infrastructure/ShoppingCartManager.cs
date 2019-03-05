@@ -1,6 +1,6 @@
 ﻿using Mood_Food.DAL;
 using Mood_Food.Models;
-using Mood_Food.Models.Others;
+using Mood_Food.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
