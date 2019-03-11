@@ -6,14 +6,20 @@ using System.Web;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
 using Mood_Food.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Mood_Food.DAL
 {
-    public class MoodFoodContext :DbContext
+    public class MoodFoodContext :IdentityDbContext<ApplicationUser>
     {
        public MoodFoodContext() : base("MoodFoodDatabase")
         {
             Database.SetInitializer(new MoodFoodInitializer());
+        }
+
+        public static MoodFoodContext Create()
+        {
+            return new MoodFoodContext();
         }
 
         public DbSet<Product> Products { get; set; }

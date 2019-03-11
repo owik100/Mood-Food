@@ -17,8 +17,8 @@ namespace Mood_Food.Tests
                 bool connected;
                 try
                 {
-                    context.Database.Connection.Open();
-                    context.Database.Connection.Close();
+                    //context.Database.Connection.Open();
+                    //context.Database.Connection.Close();
                 }
                 catch (SqlException)
                 {
