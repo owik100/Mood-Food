@@ -19,7 +19,7 @@ namespace Mood_Food.Models.ViewModels
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Potwierdz Hasło ")]
+        [Display(Name = "Powtórz Hasło")]
         [Compare("Password", ErrorMessage = "Hasło i potwierdzenie hasła nie pasują do siebie.")]
         public string ConfirmPassword { get; set; }
     }
