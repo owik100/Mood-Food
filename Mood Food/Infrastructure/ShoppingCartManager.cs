@@ -79,6 +79,38 @@ namespace Mood_Food.Infrastructure
             session.Set(Constans.SessionShoppingCartKey, shoppingCart);
         }
 
+        public Order MakeOrder(Order newOrder)
+        {
+            List<CartProduct> shoppingCart = GetShoppingCart();
+            newOrder.OrderDate = DateTime.Now;
+
+            db.Orders.Add(newOrder);
+
+            if (newOrder.OrderItem == null)
+                newOrder.OrderItem = new List<OrderItem>();
+
+            decimal cartValue = 0;
+
+            foreach (var item in shoppingCart)
+            {
+                var nowaPozycjaZamowienia = new OrderItem()
+                {
+                    ProductId = item.Product.ProductId,
+                    Quantity = item.Quantity,
+                    PurchasePrice = item.Product.Price
+                };
+
+                cartValue += (item.Quantity * item.Product.Price);
+                newOrder.OrderItem.Add(nowaPozycjaZamowienia);
+            }
+
+            newOrder.OrderValue = cartValue;
+            db.SaveChanges();
+
+            return newOrder;
+        }
+
+
         public decimal CartTotalValue(List<CartProduct> cart)
         {
             List<CartProduct> shoppingCart = cart;

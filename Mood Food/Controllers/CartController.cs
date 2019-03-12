@@ -47,9 +47,37 @@ namespace Mood_Food.Controllers
             return RedirectToAction("Index");
         }
 
-        public string Order()
+        [HttpGet]
+        public ActionResult Order()
         {
-            return "Zamawiamy!";
+            Order order = new Order();
+
+            return View(order);
+        }
+
+        [HttpPost]
+        public ActionResult Order(Order order)
+        {
+            if (ModelState.IsValid)
+            {
+            
+                var newOrder = shoppingCartManager.MakeOrder(order);
+
+              
+
+                // opróżnimy nasz koszyk zakupów
+                
+
+
+                return RedirectToAction("OrderConfirmation");
+            }
+            else
+                return View(order);
+        }
+
+        public ActionResult OrderConfirmation()
+        {
+            return View();
         }
     }
 }

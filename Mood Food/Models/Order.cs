@@ -42,7 +42,7 @@ namespace Mood_Food.Models
         public OrderStatus Status { get; set; }
         public decimal OrderValue { get; set; }
 
-        public IEnumerable<OrderItem> OrderItem { get; set; }
+        public List<OrderItem> OrderItem { get; set; }
     }
 
     public enum OrderStatus
