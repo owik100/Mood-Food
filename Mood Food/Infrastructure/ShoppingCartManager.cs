@@ -124,6 +124,11 @@ namespace Mood_Food.Infrastructure
             return value;
         }
 
+        public void EmptyCart()
+        {
+            session.Set<List<OrderItem>>(Constans.SessionShoppingCartKey, null);
+        }
+
 
     }
 }

@@ -62,12 +62,7 @@ namespace Mood_Food.Controllers
             {
             
                 var newOrder = shoppingCartManager.MakeOrder(order);
-
-              
-
-                // opróżnimy nasz koszyk zakupów
-                
-
+                shoppingCartManager.EmptyCart();
 
                 return RedirectToAction("OrderConfirmation");
             }

@@ -22,5 +22,7 @@ namespace Mood_Food.Models.ViewModels
         [Display(Name = "Powtórz Hasło")]
         [Compare("Password", ErrorMessage = "Hasło i potwierdzenie hasła nie pasują do siebie.")]
         public string ConfirmPassword { get; set; }
+
+        public bool Admin { get; set; }
     }
 }

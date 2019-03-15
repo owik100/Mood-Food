@@ -109,9 +109,16 @@ namespace Mood_Food.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email, UserData = new UserData() };
+
+                if(model.Admin)
+                {
+                    await UserManager.AddToRoleAsync(User.Identity.GetUserId(), "Admin");
+                }
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                   
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                     //logger.Info("Rejestracja udana");
                     return RedirectToAction("Index", "Home");
