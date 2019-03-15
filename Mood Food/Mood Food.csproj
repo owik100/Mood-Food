@@ -208,7 +208,6 @@
     <Compile Include="Migrations\201903152113590_ChangedModelsDisplayNames.Designer.cs">
       <DependentUpon>201903152113590_ChangedModelsDisplayNames.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\ViewModels\ManageCredentialsViewModel.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="DAL\MoodFoodContext.cs" />
     <Compile Include="DAL\MoodFoodInitializer.cs" />
@@ -276,6 +275,7 @@
     <Content Include="Views\Cart\OrderConfirmation.cshtml" />
     <Content Include="Views\Manage\AllProducts.cshtml" />
     <Content Include="Views\Manage\ProductEdit.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

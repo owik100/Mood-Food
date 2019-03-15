@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Błąd";
+}
+
+<h2 class="text-center display-4">Coś poszło nie tak...</h2>
+
+@{ 
+ if (TempData["Message"]!=null)
+    {
+        <div class="alert alert-danger text-center" role="alert">
+            @TempData["Message"]
+        </div>
+    }
+}
+

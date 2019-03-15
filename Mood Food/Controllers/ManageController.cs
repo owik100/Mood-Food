@@ -15,6 +15,7 @@ using static Mood_Food.App_Start.IdentityConfig;
 
 namespace Mood_Food.Controllers
 {
+    [Authorize]
     public class ManageController : Controller
     {
         private MoodFoodContext db;
@@ -22,12 +23,6 @@ namespace Mood_Food.Controllers
         public ManageController()
         {
             db = new MoodFoodContext();
-        }
-
-        public enum ManageMessageId
-        {
-            ChangePasswordSuccess,
-            Error
         }
 
         private ApplicationUserManager _userManager;
@@ -53,34 +48,30 @@ namespace Mood_Food.Controllers
 
 
         // GET: Manage
-        public async Task<ActionResult> Index(ManageMessageId? message)
+        public async Task<ActionResult> Index()
         {
             var name = User.Identity.Name;
-            if (TempData["ViewData"] != null)
-            {
-                ViewData = (ViewDataDictionary)TempData["ViewData"];
-            }
 
-            if (User.IsInRole("Admin"))
-                ViewBag.UserIsAdmin = true;
-            else
-                ViewBag.UserIsAdmin = false;
-           
-            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-            if (user == null)
+            if (!User.IsInRole("Admin"))
             {
+                TempData["Message"] = "Nie masz uprawnień administratora!";
                 return View("Error");
             }
 
-            var model = new ManageCredentialsViewModel
+            else
             {
-                Message = message,
-            };
+                var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                if (user == null)
+                {
+                    return View("Error");
+                }
 
-            // return View(model);
-            return RedirectToAction("AllProducts");
+                // return View(model);
+                return RedirectToAction("AllProducts");
+            }
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult AllProducts()
         {
             var products = db.Products
@@ -88,8 +79,11 @@ namespace Mood_Food.Controllers
                 .ToList();
             return View(products);
         }
+
+
+        [Authorize(Roles = "Admin")]
         [HttpGet]
-        public ActionResult ProductEdit(int id)
+        public ActionResult ProductEdit(int? id)
         {
             var product = db.Products
                 .Include("Category")
@@ -98,6 +92,7 @@ namespace Mood_Food.Controllers
             return View(product);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ProductEdit(Product product)
