@@ -85,38 +85,62 @@ namespace Mood_Food.Controllers
         [HttpGet]
         public ActionResult ProductEdit(int? id)
         {
-            var product = db.Products
-                .Include("Category")
-                .Where(x => x.ProductId == id)
-                .FirstOrDefault();
-            return View(product);
+            EditProductViewModel prod = new EditProductViewModel();
+            prod.Category = db.Categories.ToList();
+
+            if (id != null)
+            {
+                ViewBag.BtnContext = "Zaaktualizuj";
+                var product = db.Products
+               .Include("Category")
+               .Where(x => x.ProductId == id)
+               .FirstOrDefault();
+
+                prod.Product = product;
+
+                return View(prod);
+
+            }
+            else
+            {
+                ViewBag.BtnContext = "Dodaj";
+                return View(prod);
+            }
         }
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ProductEdit(Product product)
+        public ActionResult ProductEdit(EditProductViewModel model)
         {
-
+            ModelState.Remove("Product.ProductId");
             if (ModelState.IsValid)
             {
-           
-
-                if (product != null)
+                //Edycja
+                if (model.Product.ProductId > 0)
                 {
-                    db.Entry(product).State = EntityState.Modified;
 
-                    TempData["Message"] = "Sukces!";
-                    return RedirectToAction("ProductEdit");
+                    db.Entry(model.Product).State = EntityState.Modified;
+                    db.SaveChanges();
+
+                    TempData["Message"] = "Sukces! zaktualizowano produkt";
+                    return RedirectToAction("Index");
                 }
+                //Nowy
                 else
                 {
-                    return View(product);
+
+                    db.Products.Add(model.Product);
+                    db.SaveChanges();
+
+                    TempData["Message"] = "Sukces! Dodano nowy produkt";
+                    return RedirectToAction("Index");
                 }
             }
             else
             {
-                return View(product);
+                model.Category = db.Categories.ToList();
+                return View(model);
             }
 
         }
