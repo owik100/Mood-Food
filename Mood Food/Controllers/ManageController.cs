@@ -2,11 +2,14 @@
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Mood_Food.DAL;
+using Mood_Food.Infrastructure;
 using Mood_Food.Models;
 using Mood_Food.Models.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -15,7 +18,7 @@ using static Mood_Food.App_Start.IdentityConfig;
 
 namespace Mood_Food.Controllers
 {
-    [Authorize]
+
     public class ManageController : Controller
     {
         private MoodFoodContext db;
@@ -111,11 +114,24 @@ namespace Mood_Food.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ProductEdit(EditProductViewModel model)
+        public ActionResult ProductEdit(EditProductViewModel model, HttpPostedFileBase file)
         {
             ModelState.Remove("Product.ProductId");
             if (ModelState.IsValid)
             {
+
+                if (file != null && file.ContentLength > 0)
+                {
+                    var fileExt = Path.GetExtension(file.FileName);
+                    var filename = Guid.NewGuid() + fileExt;
+                    var folderPath = ConfigurationManager.AppSettings["ProductsImagePath"];
+                    var path = Path.Combine(Server.MapPath(folderPath), filename);
+
+                    file.SaveAs(path);
+                    model.Product.NameOfImage = filename;
+                }
+
+
                 //Edycja
                 if (model.Product.ProductId > 0)
                 {
@@ -129,7 +145,7 @@ namespace Mood_Food.Controllers
                 //Nowy
                 else
                 {
-
+                    
                     db.Products.Add(model.Product);
                     db.SaveChanges();
 
@@ -145,10 +161,9 @@ namespace Mood_Food.Controllers
 
         }
 
-        [Authorize(Roles = "Admin")]
+        
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult ProductDelete(int id)
+        public ActionResult ProductDelete(int? id)
         {
            var product = db.Products.Find(id);
             if(product!=null)

@@ -56,7 +56,7 @@
                     @using (Html.BeginForm("ProductDelete", "Manage", FormMethod.Post, new {id = item.ProductId}))
                     {
                         @Html.AntiForgeryToken()
-                       
+                        @Html.HiddenFor(x=>item.ProductId)
 
                         <input type="submit" class="button btn-danger" value="Usuń" />
                     }
