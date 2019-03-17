@@ -144,5 +144,20 @@ namespace Mood_Food.Controllers
             }
 
         }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ProductDelete(int id)
+        {
+           var product = db.Products.Find(id);
+            if(product!=null)
+            {
+                db.Products.Remove(product);
+                db.SaveChanges();
+                TempData["Message"] = "Sukces! Usunięto produkt";
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

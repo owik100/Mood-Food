@@ -73,7 +73,6 @@ namespace Mood_Food.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                   // logger.Info("Logowanie udane | " + model.Email);
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -82,7 +81,6 @@ namespace Mood_Food.Controllers
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("loginerror", "Nieudana próba logowania.");
-                   // logger.Info("Logowanie nieudane | " + model.Email);
                     return View(model);
             }
         }
@@ -120,10 +118,8 @@ namespace Mood_Food.Controllers
                 {
                    
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                    //logger.Info("Rejestracja udana");
                     return RedirectToAction("Index", "Home");
                 }
-               // logger.Info("Rejestracja nie udana");
                 AddErrors(result);
             }
 
@@ -144,7 +140,6 @@ namespace Mood_Food.Controllers
         public ActionResult LogOff()
         {
             var name = User.Identity.Name;
-           // logger.Info("Wylogowanie | " + name);
             AuthenticationManager.SignOut();
             return RedirectToAction("Index", "Home");
         }

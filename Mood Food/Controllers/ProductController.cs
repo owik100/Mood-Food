@@ -27,13 +27,16 @@ namespace Mood_Food.Controllers
 
             if (category=="")
             {
-                var allProducts = db.Products.ToList();
+                var allProducts = db.Products
+                    .Where(x=>!x.Hidden)
+                    .ToList();
 
                 return View(allProducts);
             }
 
             var products = db.Products
-                .Where(x => x.Category.Name == category).ToList();
+                .Where(x => x.Category.Name == category && !x.Hidden)
+                .ToList();
 
             return View(products);
         }

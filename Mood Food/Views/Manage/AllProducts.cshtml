@@ -53,7 +53,13 @@
                 </td>
                 <td>
                     @Html.ActionLink("Edytuj", "ProductEdit", new { id = item.ProductId }, new { @class = "btn btn-primary" })
-                    @Html.ActionLink("Usuń", "Delete", new { id = item.ProductId }, new { @class = "btn btn-danger" })
+                    @using (Html.BeginForm("ProductDelete", "Manage", FormMethod.Post, new {id = item.ProductId}))
+                    {
+                        @Html.AntiForgeryToken()
+                       
+
+                        <input type="submit" class="button btn-danger" value="Usuń" />
+                    }
                 </td>
             </tr>
         }
