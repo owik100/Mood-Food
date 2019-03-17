@@ -122,10 +122,12 @@ namespace Mood_Food.Controllers
 
                 if (file != null && file.ContentLength > 0)
                 {
-                    var fileExt = Path.GetExtension(file.FileName);
-                    var filename = Guid.NewGuid() + fileExt;
+
+                    var filename = file.FileName;
                     var folderPath = ConfigurationManager.AppSettings["ProductsImagePath"];
                     var path = Path.Combine(Server.MapPath(folderPath), filename);
+
+                    model.Product.NameOfImage = file.FileName;
 
                     file.SaveAs(path);
                     model.Product.NameOfImage = filename;
