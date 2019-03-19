@@ -108,15 +108,18 @@ namespace Mood_Food.Controllers
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email, UserData = new UserData() };
 
-                if(model.Admin)
-                {
-                    await UserManager.AddToRoleAsync(User.Identity.GetUserId(), "Admin");
-                }
+              
 
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                   
+
+                    if (model.Admin)
+                    {
+                        await UserManager.AddToRoleAsync(user.Id, "Admin");
+                        //user.Roles.Add("Admin");
+                    }
+
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                     return RedirectToAction("Index", "Home");
                 }
