@@ -163,9 +163,10 @@ namespace Mood_Food.Controllers
 
         }
 
-        
+        [Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult ProductDelete(int? id)
+        [ValidateAntiForgeryToken]
+        public ActionResult ProductDelete(int id)
         {
            var product = db.Products.Find(id);
             if(product!=null)

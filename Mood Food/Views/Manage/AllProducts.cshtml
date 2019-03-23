@@ -53,10 +53,9 @@
                 </td>
                 <td>
                     @Html.ActionLink("Edytuj", "ProductEdit", new { id = item.ProductId }, new { @class = "btn btn-primary" })
-                    @using (Html.BeginForm("ProductDelete", "Manage", FormMethod.Post, new {id = item.ProductId}))
+                    @using (Html.BeginForm("ProductDelete", "Manage", new {id = item.ProductId}))
                     {
                         @Html.AntiForgeryToken()
-                        @Html.HiddenFor(x=>item.ProductId)
 
                         <input type="submit" class="button btn-danger" value="Usuń" />
                     }
