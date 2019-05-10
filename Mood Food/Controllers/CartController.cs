@@ -63,6 +63,17 @@ namespace Mood_Food.Controllers
             
                 var newOrder = shoppingCartManager.MakeOrder(order);
                 shoppingCartManager.EmptyCart();
+                
+                var oder = db.Orders;
+
+                OrderConfirmationEmail email = new OrderConfirmationEmail();
+                email.To = order.Emial;
+                email.From = "marcin.owczarz95@gmail.com";
+                email.Value = order.OrderValue;
+                email.OrderID = order.OrderId;
+                email.OrderItems = order.OrderItem;
+                email.Send();
+
 
                 return RedirectToAction("OrderConfirmation");
             }

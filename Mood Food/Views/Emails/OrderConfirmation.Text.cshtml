@@ -1,0 +1,27 @@
+﻿@model Mood_Food.Models.ViewModels.OrderConfirmationEmail
+Content-Type: text/plain; charset=utf-8
+
+Potwierdzenie
+
+Złożyłeś zamówienie w Mood Food.
+
+
+    @*IEnumerable<Mood_Food.Models.OrderItem> pozycjeZamowienia = Model.PozycjeZamowienia;
+
+    for (int i = 0; i < pozycjeZamowienia.Count(); i++)
+    {
+        @pozycjeZamowienia.ElementAt(i).kurs.TytulKursu
+    }*@
+    @foreach (var item in Model.PozycjeZamowienia)
+    {
+        @item.Product.Name;
+    }
+
+
+Prosimy o przelanie kwoty @Model.Value zł, tytułem: zamówienie nr @Model.OrderID na nasze konto bankowe:
+
+
+00 0000 0000 0000 0000 0000
+
+
+Dziękujemy i zapraszamy ponownie!
